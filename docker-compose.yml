@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  rabbitmq:
+    image: amd64/rabbitmq:3.11.13-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - /var/lib/data:/var/lib/rabbitmq
+      - /var/log/rabbitmq:/var/log/rabbitmq
+    networks:
+      - db-network
